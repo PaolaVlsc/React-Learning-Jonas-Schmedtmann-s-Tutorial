@@ -87,15 +87,6 @@ const Header = () => {
     );
 };
 
-function Pizza() {
-    return (
-        <div>
-            <img src={"pizzas/spinaci.jpg"} alt={"Pizza spinachi"}/>
-            <h2>Pizza Spinachi</h2>
-            <p>Tomato, mozarella, spinach, and ricotta cheese</p>
-        </div>
-    );
-}
 
 // TODO: 05.01 Menu function- component
 const Menu = () => {
@@ -105,9 +96,23 @@ const Menu = () => {
             ingredients={"Tomato, mozzarella, spinach, and ricotta cheese"}
             photoName={"pizzas/spinaci.jpg"} price={"10"}
         />
+        <Pizza
+            name={"Pizza Funghi"}
+            ingredients={"Tomato, mozarella, mushrooms, and onion"}
+            photoName={"pizzas/funghi.jpg"} price={"12"}
+        />
     </div>);
 };
 
+function Pizza(props) {
+    return (
+        <div>
+            <img src={props.photoName} alt={props.name}/>
+            <h2>{props.name}</h2>
+            <p>{props.ingredients}</p>
+        </div>
+    );
+}
 
 // TODO: 04.01 Footer function
 const Footer = () => {
