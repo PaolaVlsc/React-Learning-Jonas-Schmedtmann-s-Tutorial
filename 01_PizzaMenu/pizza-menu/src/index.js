@@ -99,7 +99,13 @@ function Pizza() {
 
 // TODO: 05.01 Menu function- component
 const Menu = () => {
-    return (<div><h2>Our menu</h2><Pizza/></div>);
+    return (<div><h2>Our menu</h2>
+        <Pizza
+            name={"Pizza Spinaci"}
+            ingredients={"Tomato, mozzarella, spinach, and ricotta cheese"}
+            photoName={"pizzas/spinaci.jpg"} price={"10"}
+        />
+    </div>);
 };
 
 
