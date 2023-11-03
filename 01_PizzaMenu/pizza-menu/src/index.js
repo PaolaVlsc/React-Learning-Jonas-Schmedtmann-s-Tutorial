@@ -50,6 +50,8 @@ const pizzaData = [
     },
 ];
 
+// In JSX we cannot use class but only className
+
 // TODO: 01 Main App
 const App = () => {
     return (
@@ -66,8 +68,20 @@ const App = () => {
 
 // TODO: 03.01 Header function
 const Header = () => {
+
+    // Instead 02:
+    // const style = {color: "red", fontSize: "48", textTransform: "uppercase"};
+
+    // in HTML when we want to add inline styling
+    // <h1 style="font-size: 10px"></h1>
     return (
         <header className="header">
+            {/* Instead 01:
+             <h1 style={{color: "red", fontSize: "48", textTransform: "uppercase"}}>Fast React Pizza Co.</h1>
+             Instead 02:
+             <h1 style={style}>Fast React Pizza Co.</h1>
+            */}
+
             <h1>Fast React Pizza Co.</h1>
         </header>
     );
