@@ -90,18 +90,20 @@ const Header = () => {
 
 // TODO: 05.01 Menu function- component
 const Menu = () => {
-    return (<div className={"menu"}><h2>Our menu</h2>
+    return (
+        <main className={"menu"}>
+            <h2>Our menu</h2>
 
-        // traverse a list using map
-        <div>
-            {
-                // pizzaData.map(pizza => (<Pizza name={pizza.name} ingredients={pizza.ingredients}/>))
-                // we usually pass the object itself
-                pizzaData.map(pizza => (<Pizza pizzaObject={pizza}/>))
-            }
-        </div>
+            {/*// traverse a list using map*/}
+            <ul className={"pizzas"}>
+                {
+                    // pizzaData.map(pizza => (<Pizza name={pizza.name} ingredients={pizza.ingredients}/>))
+                    // we usually pass the object itself
+                    pizzaData.map(pizza => (<Pizza pizzaObject={pizza} key={pizza.name}/>))
+                }
+            </ul>
 
-        {/*   <Pizza
+            {/*   <Pizza
             name={"Pizza Spinaci"}
             ingredients={"Tomato, mozzarella, spinach, and ricotta cheese"}
             photoName={"pizzas/spinaci.jpg"}
@@ -113,19 +115,21 @@ const Menu = () => {
             photoName={"pizzas/funghi.jpg"}
             price={12}
         />*/}
-    </div>);
+        </main>);
 };
 
 function Pizza(props) {
     return (
-        <div className={"pizza"}>
+        <li className={"pizza"}>
             <img src={props.pizzaObject.photoName} alt={props.pizzaObject.name}/>
-            <h2>{props.pizzaObject.name}</h2>
-            <p>{props.pizzaObject.ingredients}</p>
-            <span>{props.pizzaObject.price}</span>
-        </div>
+            <div><h3>{props.pizzaObject.name}</h3>
+                <p>{props.pizzaObject.ingredients}</p>
+                <span>{props.pizzaObject.price}</span>
+            </div>
+        </li>
     );
 }
+
 
 // TODO: 04.01 Footer function
 const Footer = () => {
