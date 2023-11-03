@@ -91,6 +91,19 @@ const Menu = () => {
 
 // TODO: 04.01 Footer function
 const Footer = () => {
+
+    // get local real time
+    const localTime = new Date().getHours();
+    // console.log(localTime);
+
+    // set open and closing hours
+    const openHour = 12;
+    const closeHour = 22;
+
+    // JS ternary conditional
+    const isOpen = localTime >= openHour && localTime <= closeHour; // true or false
+    console.log(isOpen);
+
     return (null);
 };
 
