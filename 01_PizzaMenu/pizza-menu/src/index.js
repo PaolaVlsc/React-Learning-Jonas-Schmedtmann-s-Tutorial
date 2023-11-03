@@ -139,14 +139,24 @@ const Footer = () => {
     // console.log(localTime);
 
     // set open and closing hours
-    const openHour = 12;
-    const closeHour = 22;
+    const openingHour = 12;
+    const closingHour = 22;
 
     // JS ternary conditional
-    const isOpen = localTime >= openHour && localTime <= closeHour; // true or false
+    const isOpen = localTime >= openingHour && localTime <= closingHour; // true or false
     console.log(isOpen);
 
-    return (null);
+    return (
+        <footer className={"footer"}>
+            {
+                /*short-circuiting, js expression*/
+                isOpen &&
+                <div className={"open"}>
+                    <p>We're open until {closingHour}:00. Come visit us or order online</p>
+                    <button className={"btn"}>Order</button>
+                </div>}
+        </footer>
+    );
 };
 
 
