@@ -110,7 +110,7 @@ const Menu = () => {
 
                 // check if pizza array is empty
                 // we want to render two elements seperately. React Fragment. Otherwise, if div was to be used then it would render only one component and that would mess up the css- styling
-                numPizzas > 0 && (
+                numPizzas > 0 ? (
                     <ul className="pizzas">
                         {
                             // render each pizza by map method and calling function Pizza
@@ -139,7 +139,12 @@ const Menu = () => {
                                 photoName={"pizzas/funghi.jpg"}
                                 price={12}
                             />*/}
-                    </ul>)
+                    </ul>
+                ) : (
+                    // if no then return this component
+                    <p>We are still working on our menu. Please come back later!</p>
+                )
+
             }
         </main>
     );
