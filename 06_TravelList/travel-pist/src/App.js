@@ -1,5 +1,6 @@
 // data
 import * as PropTypes from "prop-types";
+import {useState} from "react";
 
 const initialItems = [{id: 1, description: "Passports", quantity: 2, packed: false}, {
     id: 2,
@@ -29,6 +30,8 @@ const Logo = () => {
 
 // TODO 3: Form Component
 const Form = () => {
+
+    const [description, setDescription] = useState();
 
     // TODO 3.02 Logic
     function handleSubmit(event) {
@@ -77,13 +80,14 @@ function Item({item}) {
 
 // TODO 4: Packing List Component
 const PackingList = () => {
-    return (<div className={"list"}>
-        <ul>
-
-            {/*TODO 04.01: Render List*/}
-            {initialItems.map(item => <Item item={item}/>)}
-        </ul>
-    </div>);
+    return (
+        <div className={"list"}  >
+            <ul>
+                {/*TODO 04.01: Render List*/}
+                {initialItems.map(item => <Item item={item} key={item.id}/>)}
+            </ul>
+        </div>
+    );
 }
 
 // TODO 5: Stats
