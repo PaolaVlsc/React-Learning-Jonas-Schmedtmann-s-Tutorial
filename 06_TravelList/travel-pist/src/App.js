@@ -31,13 +31,14 @@ const Logo = () => {
 const Form = () => {
 
     // TODO 3.02 Logic
-    function handleSubmit(event){
+    function handleSubmit(event) {
         event.preventDefault();
 
     }
 
     return (
-        <form className={"add-form"} onSubmit={handleSubmit}>
+        // <div className="add-form" onSubmit={  handleSubmit }>
+        <form className={"add-form"} onSubmit={(event) => handleSubmit(event)}>
             <h3>What do you need for your trip?</h3>
             <select>
                 {/*TODO 3.01 Layout */}
