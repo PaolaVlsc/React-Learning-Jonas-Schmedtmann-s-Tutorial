@@ -39,6 +39,17 @@ const Form = () => {
         event.preventDefault();
         console.log(event);
 
+        // if there's nothing written by the user on the input then do not submit
+        if (!description) return;
+        const newItem = {description, quantity, packed: false, id: Date.now()};
+
+        console.log(newItem);
+
+
+        // reset the form
+        setDescription("");
+        setQuantity(1);
+
     }
 
     return (
