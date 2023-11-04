@@ -29,10 +29,17 @@ const Logo = () => {
 
 // TODO 3: Form Component
 const Form = () => {
+
+    // TODO 3.02 Logic
+    function handleSubmit(){
+
+    }
+
     return (
-        <form className={"add-form"}>
+        <form className={"add-form"} onSubmit={handleSubmit}>
             <h3>What do you need for your trip?</h3>
             <select>
+                {/*TODO 3.01 Layout */}
                 {/*<option value={1}>1</option>*/}
                 {/*<option value={2}>2</option>*/}
                 {/*<option value={3}>3</option>*/}
