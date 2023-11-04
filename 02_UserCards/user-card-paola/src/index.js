@@ -55,7 +55,7 @@ function App() {
 }
 
 const Avatar = () => {
-    return <img className={"avatar"} src="test01.png" alt={"Paola Vlsc"}/>;
+    return <img className={"avatar"} src="test01.png" alt={"Paola Vlsc dk"}/>;
 };
 
 const Introduction = () => {
