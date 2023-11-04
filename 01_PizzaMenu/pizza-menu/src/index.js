@@ -105,29 +105,36 @@ const Menu = () => {
         <main className="menu">
             <h2>Our Menu</h2>
 
+
             {
                 // rendering optimization - remember that JSX only accepts expressions so a  conditional statement is not allowed
 
                 // check if pizza array is empty
-                // we want to render two elements seperately. React Fragment. Otherwise, if div was to be used then it would render only one component and that would mess up the css- styling
+                // we want to render two elements separately. React Fragment. Otherwise, if div was to be used then it would render only one component and that would mess up the css- styling
                 numPizzas > 0 ? (
-                    <ul className="pizzas">
-                        {
-                            // render each pizza by map method and calling function Pizza
-                            // each time we render a list with the map menthod, each of the iteams that gets rendered needs a unique id
+                    <React.Fragment key="something01">
+                        <p>
+                            Authentic Italian cuising. 6 createive dishes to choose from. All
+                            from our stone over, all organice, all delicious.
+                        </p>
+
+                        <ul className="pizzas">
+                            {
+                                // render each pizza by map method and calling function Pizza
+                                // each time we render a list with the map menthod, each of the iteams that gets rendered needs a unique id
 
 
-                            // pizzaData.map(pizza => (<Pizza name={pizza.name} ingredients={pizza.ingredients}/>))
-                            // we usually pass the object itself
+                                // pizzaData.map(pizza => (<Pizza name={pizza.name} ingredients={pizza.ingredients}/>))
+                                // we usually pass the object itself
 
 
-                            // copying pizza
-                            pizzas.map((x) => (
-                                <Pizza pizzaObject={x} key={x.name}/> // pass a pizza object and a unique key
-                            ))
-                        }
+                                // copying pizza
+                                pizzas.map((x) => (
+                                    <Pizza pizzaObject={x} key={x.name}/> // pass a pizza object and a unique key
+                                ))
+                            }
 
-                        {/*   <Pizza
+                            {/*   <Pizza
                                 name={"Pizza Spinaci"}
                                 ingredients={"Tomato, mozzarella, spinach, and ricotta cheese"}
                                 photoName={"pizzas/spinaci.jpg"}
@@ -139,7 +146,8 @@ const Menu = () => {
                                 photoName={"pizzas/funghi.jpg"}
                                 price={12}
                             />*/}
-                    </ul>
+                        </ul>
+                    </React.Fragment>
                 ) : (
                     // if no then return this component
                     <p>We are still working on our menu. Please come back later!</p>
@@ -206,16 +214,40 @@ function Pizza({pizzaObject}) {
 
 
     return (
-        <li className={"pizza"}>
+        /*
+                <li className={"pizza"}>
+        */
+
+        /*
+                Set conditional CSS classes
+        */
+        <li className={`pizza ${pizzaObject.soldOut ? "sold-out" : ""}`}>
             <img src={pizzaObject.photoName} alt={pizzaObject.name}/>
             <div><h3>{pizzaObject.name}</h3>
                 <p>{pizzaObject.ingredients}</p>
-                <span>{pizzaObject.price}</span>
-            </div>
+                {/*
+                {pizzaObject.soldOut ? (<span>SOLD OUT</span>) : <span>{pizzaObject.price}</span>}
+                */}
+                <span>{pizzaObject.soldOut ? "SOLD OUT" : pizzaObject.price}</span></div>
         </li>
     );
 }
 
+// const Pizza = ({ pizzaObject }) => {
+//   const { name, ingredients, soldOut, price, photoName } = pizzaObject;
+//   const pizzaClassName = soldOut ? "pizza sold-out" : "pizza";
+
+//   return (
+//     <li className={pizzaClassName}>
+//       <img src={photoName} alt={name} />
+//       <div>
+//         <h3>{name}</h3>
+//         <p>{ingredients}</p>
+//         <span>{soldOut ? "SOLD OUT" : price}</span>
+//       </div>
+//     </li>
+//   );
+// };
 
 // TODO: 04.01 Footer function
 const Footer = () => {

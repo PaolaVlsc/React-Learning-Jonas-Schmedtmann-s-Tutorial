@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cb79086-3c0b-46f9-b268-cab2d8c57d10" name="Changes" comment=" Add a new component Open">
+    <list default="true" id="9cb79086-3c0b-46f9-b268-cab2d8c57d10" name="Changes" comment="Instead of directly receiving the props, we can destructure it">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
@@ -37,23 +37,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Day01&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Velasco/Desktop/React-Learning-Jonas-Schmedtmann-s-Tutorial/01_PizzaMenu/pizza-menu&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Day01",
+    "last_opened_file_path": "D:/Velasco/Desktop/React-Learning-Jonas-Schmedtmann-s-Tutorial/01_PizzaMenu/pizza-menu",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Velasco\Desktop\React-Learning-Jonas-Schmedtmann-s-Tutorial\01_PizzaMenu\pizza-menu\public" />
@@ -85,7 +86,7 @@
       <updated>1699016330556</updated>
       <workItem from="1699016331638" duration="3952000" />
       <workItem from="1699058827275" duration="493000" />
-      <workItem from="1699059353859" duration="3480000" />
+      <workItem from="1699059353859" duration="4394000" />
     </task>
     <task id="LOCAL-00001" summary="change footer return to ternary operator and add and alternative too">
       <option name="closed" value="true" />
@@ -111,7 +112,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699062627416</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Instead of directly receiving the props, we can destructure it">
+      <option name="closed" value="true" />
+      <created>1699062862664</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1699062862664</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +131,7 @@
     <MESSAGE value="change footer return to ternary operator and add and alternative too" />
     <MESSAGE value="If statement for rendering. Only use it when we want to return a whole different component and not just a piece of JSX" />
     <MESSAGE value=" Add a new component Open" />
-    <option name="LAST_COMMIT_MESSAGE" value=" Add a new component Open" />
+    <MESSAGE value="Instead of directly receiving the props, we can destructure it" />
+    <option name="LAST_COMMIT_MESSAGE" value="Instead of directly receiving the props, we can destructure it" />
   </component>
 </project>
