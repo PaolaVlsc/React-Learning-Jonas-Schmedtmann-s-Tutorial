@@ -29,9 +29,11 @@ const Logo = () => {
 
 // TODO 3: Form Component
 const Form = () => {
-    return (<div className={"add-form"}>
-        <h3>What do you need for your trip?</h3>
-    </div>);
+    return (
+        <form className={"add-form"}>
+            <h3>What do you need for your trip?</h3>
+        </form>
+    );
 }
 
 // TODO 4.02: Item Component in the list
@@ -46,7 +48,6 @@ function Item({item}) {
         </li>);
 }
 
-Item.propTypes = {item: PropTypes.any};
 // TODO 4: Packing List Component
 const PackingList = () => {
     return (<div className={"list"}>
