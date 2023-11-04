@@ -9,9 +9,7 @@ This repository is dedicated to my journey of learning React with Jonas Schmedtm
 
 This repository is organized into folders, each representing a different section or project from the tutorial. Here's an overview of what you can find in this repository:
 
-- **Section 1: [Description]** - (Optional, provide a brief description)
-- **Section 2: [Description]** - (Optional, provide a brief description)
-- ...
-
+- **01_PizzaMenu: [A small webpage pizza menu without any functionability]**  
+- **02_UserCard: [User Card Paola]**   
 You can explore each section to see the code, projects, and exercises I've completed while following the tutorial.
 
