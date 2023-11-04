@@ -199,7 +199,7 @@ const Menu = () => {
 };
 */
 
-function Pizza(props) {
+function Pizza({pizzaObject}) {
 
 
     // if(props.pizzaObject.soldOut) return null;
@@ -207,10 +207,10 @@ function Pizza(props) {
 
     return (
         <li className={"pizza"}>
-            <img src={props.pizzaObject.photoName} alt={props.pizzaObject.name}/>
-            <div><h3>{props.pizzaObject.name}</h3>
-                <p>{props.pizzaObject.ingredients}</p>
-                <span>{props.pizzaObject.price}</span>
+            <img src={pizzaObject.photoName} alt={pizzaObject.name}/>
+            <div><h3>{pizzaObject.name}</h3>
+                <p>{pizzaObject.ingredients}</p>
+                <span>{pizzaObject.price}</span>
             </div>
         </li>
     );
@@ -271,11 +271,11 @@ const Footer = () => {
 
 // TODO: 06 Footer: We create a new function component because we want big different outputs. Also it doesnt render - optimizes this way
 // Technique: destructuring
-const Open = (props) => {
+const Open = ({openingHour, closingHour}) => {
     return (
         <div className="open">
             <p>
-                We are open from {props.openingHour}:00 until {props.closingHour}:00. Come visit us
+                We are open from {openingHour}:00 until {closingHour}:00. Come visit us
                 or order online.
             </p>
             <button className="btn">Order</button>
