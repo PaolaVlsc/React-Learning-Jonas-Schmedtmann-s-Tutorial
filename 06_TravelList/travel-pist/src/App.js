@@ -31,7 +31,8 @@ const Logo = () => {
 const Form = () => {
 
     // TODO 3.02 Logic
-    function handleSubmit(){
+    function handleSubmit(event){
+        event.preventDefault();
 
     }
 
