@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cb79086-3c0b-46f9-b268-cab2d8c57d10" name="Changes" comment="Instead of directly receiving the props, we can destructure it">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="9cb79086-3c0b-46f9-b268-cab2d8c57d10" name="Changes" comment="Instead of directly receiving the props, we can destructure it" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +40,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Day01",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "D:/Velasco/Desktop/React-Learning-Jonas-Schmedtmann-s-Tutorial/01_PizzaMenu/pizza-menu",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -132,6 +129,6 @@
     <MESSAGE value="If statement for rendering. Only use it when we want to return a whole different component and not just a piece of JSX" />
     <MESSAGE value=" Add a new component Open" />
     <MESSAGE value="Instead of directly receiving the props, we can destructure it" />
-    <option name="LAST_COMMIT_MESSAGE" value="Instead of directly receiving the props, we can destructure it" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>
