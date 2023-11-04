@@ -31,16 +31,20 @@ const Logo = () => {
 // TODO 3: Form Component
 const Form = () => {
     return (
-        <div className={"add-form"}></div>
+        <div className={"add-form"}>
+            <h3>What do you need for your trip?</h3>
+        </div>
     );
 }
 
 
 // TODO 4: Packing List Component
 const PackingList = () => {
-return(
-    <div className={"list"}></div>
-);
+    return (
+        <div className={"list"}>
+
+        </div>
+    );
 }
 
 // TODO 5: Stats
