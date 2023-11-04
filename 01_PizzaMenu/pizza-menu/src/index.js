@@ -227,17 +227,36 @@ const Footer = () => {
     const isOpen = localTime >= openingHour && localTime <= closingHour; // true or false
     console.log(isOpen);
 
+
+    // ternary operator ver
     return (
         <footer className={"footer"}>
             {
-                /*short-circuiting, js expression*/
-                isOpen &&
-                <div className={"open"}>
+                isOpen ? (<div className={"open"}>
                     <p>We're open until {closingHour}:00. Come visit us or order online</p>
                     <button className={"btn"}>Order</button>
-                </div>}
+                </div>) : (
+                    <p>
+                        We're happy to welcome you between {openingHour}:00 and {closingHour}:00.
+                    </p>
+                )
+            }
         </footer>
     );
+
+
+    /*  // short-circuiting ver
+      return (
+          <footer className={"footer"}>
+              {
+                  /!*short-circuiting, js expression*!/
+                  isOpen &&
+                  <div className={"open"}>
+                      <p>We're open until {closingHour}:00. Come visit us or order online</p>
+                      <button className={"btn"}>Order</button>
+                  </div>}
+          </footer>
+      );*/
 };
 
 
