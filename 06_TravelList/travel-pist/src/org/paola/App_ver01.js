@@ -8,19 +8,11 @@ const initialItems = [
 
 
 function App() {
-
-    const [items, setItems] = useState([]);
-
-
-    function handleAddItems(item) {
-        setItems(items => [...items, item]); // new array doesn't affect the old array
-    }
-
     return (
         <div className="app">
             <Logo/>
-            <Form onAddItems={handleAddItems}/>
-            <PackingList items={items}/>
+            <Form/>
+            <PackingList/>
             <Stats/>
         </div>
     );
@@ -34,11 +26,10 @@ function Logo() {
 }
 
 
-function Form({onAddItems}) {
+function Form() {
 
     const [description, setDescription] = useState("");
     const [quantity, setQuantity] = useState(1);
-
 
     // event handler
     function handleSubmit(e) {
@@ -46,12 +37,10 @@ function Form({onAddItems}) {
         console.log(e);
 
         // if there's nothing written by the user on the input then do not submit
-        if (!description) return;
+        if(!description) return;
         const newItem = {description, quantity, packed: false, id: Date.now()};
 
         console.log(newItem);
-
-        onAddItems(newItem);
 
         // reset the form
         setDescription("");
@@ -85,12 +74,12 @@ function Form({onAddItems}) {
 
 
 // RENDER LIST ITEM
-function PackingList({items}) {
+function PackingList() {
     return (
         <div className={"list"}>
             <ul>
                 {
-                    items.map(item =>
+                    initialItems.map(item =>
                         <Item item={item} key={item.id}/>)
                 }
             </ul>
