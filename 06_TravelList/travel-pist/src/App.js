@@ -31,7 +31,7 @@ const Logo = () => {
 // TODO 3: Form Component
 const Form = () => {
 
-    const [description, setDescription] = useState();
+    const [description, setDescription] = useState("TEST");
 
     // TODO 3.02 Logic
     function handleSubmit(event) {
@@ -60,7 +60,7 @@ const Form = () => {
                 ))
                 }
             </select>
-            <input type={"text"} placeholder={"Item..."}/>
+            <input type={"text"} placeholder={"Item..."} value={description}/>
             <button>Add</button>
         </form>
     );
