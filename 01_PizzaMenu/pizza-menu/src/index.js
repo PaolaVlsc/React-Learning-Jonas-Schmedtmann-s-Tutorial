@@ -89,21 +89,96 @@ const Header = () => {
 
 
 // TODO: 05.01 Menu function- component
+// Menu component displays the pizzas and those that are not available are shown as grayed
+// To implement that we need to get a list of the pizzas data. So we need like an OOP object/ class pizza
 const Menu = () => {
+    // get array
+    const pizzas = pizzaData;
+
+    // get array's length
+    const numPizzas = pizzas.length;
+    // numPizzas = 0;
+
+    // We know that from a component we can only return one JSX
+
+    return (
+        <main className="menu">
+            <h2>Our Menu</h2>
+
+            {
+                // rendering optimization - remember that JSX only accepts expressions so a  conditional statement is not allowed
+
+                // check if pizza array is empty
+                // we want to render two elements seperately. React Fragment. Otherwise, if div was to be used then it would render only one component and that would mess up the css- styling
+                numPizzas > 0 && (
+                    <ul className="pizzas">
+                        {
+                            // render each pizza by map method and calling function Pizza
+                            // each time we render a list with the map menthod, each of the iteams that gets rendered needs a unique id
+
+
+                            // pizzaData.map(pizza => (<Pizza name={pizza.name} ingredients={pizza.ingredients}/>))
+                            // we usually pass the object itself
+
+
+                            // copying pizza
+                            pizzas.map((x) => (
+                                <Pizza pizzaObject={x} key={x.name}/> // pass a pizza object and a unique key
+                            ))
+                        }
+
+                        {/*   <Pizza
+                                name={"Pizza Spinaci"}
+                                ingredients={"Tomato, mozzarella, spinach, and ricotta cheese"}
+                                photoName={"pizzas/spinaci.jpg"}
+                                price={10}
+                            />
+                            <Pizza
+                                name={"Pizza Funghi"}
+                                ingredients={"Tomato, mozarella, mushrooms, and onion"}
+                                photoName={"pizzas/funghi.jpg"}
+                                price={12}
+                            />*/}
+                    </ul>)
+            }
+        </main>
+    );
+};
+
+/*
+// TODO: 05.01 Menu function- component
+const Menu = () => {
+
+    // get array
+    const pizzas = pizzaData;
+
+    // get array's length
+    const numPizzas = pizzas.length;
+
+    // We know that from a component we can only return one JSX
+
     return (
         <main className={"menu"}>
             <h2>Our menu</h2>
 
-            {/*// traverse a list using map*/}
-            <ul className={"pizzas"}>
+
+            {{/!* Conditional rendering: short-circuiting*!/}}
+
+            {/!* This will render every time even if pizzaData is empty because it returns a truthy value*!/}
+            {pizzas && ( <ul className={"pizzas"}>{pizza=>(<Pizza pizzaObject={pizza} key={pizza.name}/>)}</ul>)}
+
+            {/!*!// traverse a list using map*!/}
+            {/!*    <ul className={"pizzas"}>
                 {
                     // pizzaData.map(pizza => (<Pizza name={pizza.name} ingredients={pizza.ingredients}/>))
                     // we usually pass the object itself
                     pizzaData.map(pizza => (<Pizza pizzaObject={pizza} key={pizza.name}/>))
                 }
             </ul>
+            *!/}
 
-            {/*   <Pizza
+
+            {/!*   <Pizza
             name={"Pizza Spinaci"}
             ingredients={"Tomato, mozzarella, spinach, and ricotta cheese"}
             photoName={"pizzas/spinaci.jpg"}
@@ -114,9 +189,10 @@ const Menu = () => {
             ingredients={"Tomato, mozarella, mushrooms, and onion"}
             photoName={"pizzas/funghi.jpg"}
             price={12}
-        />*/}
+        />*!/}
         </main>);
 };
+*/
 
 function Pizza(props) {
     return (

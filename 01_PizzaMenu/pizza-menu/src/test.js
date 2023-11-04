@@ -55,11 +55,11 @@ const App = () => {
     return (
         <div className="container">
             {/* TODO: 03 Header */}
-            <Header />
+            <Header/>
             {/* TODO: 05 Menu */}
-            <Menu />
+            <Menu/>
             {/* TODO: 04 Footer */}
-            <Footer />
+            <Footer/>
         </div>
     );
 };
@@ -103,16 +103,36 @@ const Menu = () => {
                         </p>
                         {/* display pizza in a list */}
 
+                        {/*// traverse a list using map*/}
+
                         <ul className="pizzas">
                             {
                                 // render each pizza by map method and calling function Pizza
                                 // each time we render a list with the map menthod, each of the iteams that gets rendered needs a unique id
 
+
+                                // pizzaData.map(pizza => (<Pizza name={pizza.name} ingredients={pizza.ingredients}/>))
+                                // we usually pass the object itself
+
+
                                 // copying pizza
                                 pizzas.map((x) => (
-                                    <Pizza pizzaObject={x} key={x.name} /> // pass a pizza object and a unique key
+                                    <Pizza pizzaObject={x} key={x.name}/> // pass a pizza object and a unique key
                                 ))
                             }
+
+                            {/*   <Pizza
+            name={"Pizza Spinaci"}
+            ingredients={"Tomato, mozzarella, spinach, and ricotta cheese"}
+            photoName={"pizzas/spinaci.jpg"}
+            price={10}
+        />
+        <Pizza
+            name={"Pizza Funghi"}
+            ingredients={"Tomato, mozarella, mushrooms, and onion"}
+            photoName={"pizzas/funghi.jpg"}
+            price={12}
+        />*/}
                         </ul>
                     </React.Fragment>
                 ) : (
@@ -126,11 +146,11 @@ const Menu = () => {
 };
 
 // TODO: 07 Pizza
-const Pizza = ({ pizzaObject }) => {
+const Pizza = ({pizzaObject}) => {
     return (
         // check if pizza is available if not then the className should be pizza sold-out, if not then just pizza
         <li className={`pizza ${pizzaObject.soldOut ? "sold-out" : ""}`}>
-            <img src={pizzaObject.photoName} alt={pizzaObject.name} />
+            <img src={pizzaObject.photoName} alt={pizzaObject.name}/>
             <div>
                 <h3>{pizzaObject.name}</h3>
                 <p>{pizzaObject.ingredients}</p>
@@ -175,7 +195,7 @@ const Footer = () => {
                 // JS code - misssing alternative
                 //isOpen && <Open closingTime={closeHour} openingTime={openHour} />
                 isOpen ? (
-                    <Open closingTime={closeHour} openingTime={openHour} />
+                    <Open closingTime={closeHour} openingTime={openHour}/>
                 ) : (
                     <p>
                         We're happy to welcome you between {openHour}:00 and {closeHour}:00.
@@ -188,7 +208,7 @@ const Footer = () => {
 
 // TODO: 06 Footer: We create a new function component because we want big different outputs. Also it doesnt render - optimizes this way
 // Technique: destructuring
-const Open = ({ closingTime, openingTime }) => {
+const Open = ({closingTime, openingTime}) => {
     return (
         <div className="open">
             <p>
@@ -205,6 +225,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
     <React.StrictMode>
-        <App />
+        <App/>
     </React.StrictMode>
 );
