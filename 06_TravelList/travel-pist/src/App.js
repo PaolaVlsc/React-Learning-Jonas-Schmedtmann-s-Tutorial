@@ -33,11 +33,21 @@ const Form = () => {
         <form className={"add-form"}>
             <h3>What do you need for your trip?</h3>
             <select>
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
+                {/*<option value={1}>1</option>*/}
+                {/*<option value={2}>2</option>*/}
+                {/*<option value={3}>3</option>*/}
+
+                {/*Create an array from 1 to 20 and then traverse it with map*/}
+                {Array.from({length: 20}, (_, i) => i + 1).map
+                ((num) => (
+                    <option
+                        value={num} key={num}>
+                        {num}
+                    </option>
+                ))
+                }
             </select>
-            <input type={"text"} placeholder={"Item..."} />
+            <input type={"text"} placeholder={"Item..."}/>
             <button>Add</button>
         </form>
     );
