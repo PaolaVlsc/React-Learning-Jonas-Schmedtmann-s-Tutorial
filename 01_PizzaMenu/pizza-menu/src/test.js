@@ -50,8 +50,6 @@ const pizzaData = [
     },
 ];
 
-// In JSX we cannot use class but only className
-
 // TODO: 01 Main App
 const App = () => {
     return (
@@ -68,25 +66,12 @@ const App = () => {
 
 // TODO: 03.01 Header function
 const Header = () => {
-
-    // Instead 02:
-    // const style = {color: "red", fontSize: "48", textTransform: "uppercase"};
-
-    // in HTML when we want to add inline styling
-    // <h1 style="font-size: 10px"></h1>
     return (
         <header className="header">
-            {/* Instead 01:
-             <h1 style={{color: "red", fontSize: "48", textTransform: "uppercase"}}>Fast React Pizza Co.</h1>
-             Instead 02:
-             <h1 style={style}>Fast React Pizza Co.</h1>
-            */}
-
             <h1>Fast React Pizza Co.</h1>
         </header>
     );
 };
-
 
 // TODO: 05.01 Menu function- component
 // Menu component displays the pizzas and those that are not available are shown as grayed
@@ -97,7 +82,6 @@ const Menu = () => {
 
     // get array's length
     const numPizzas = pizzas.length;
-    // numPizzas = 0;
 
     // We know that from a component we can only return one JSX
 
@@ -105,18 +89,21 @@ const Menu = () => {
         <main className="menu">
             <h2>Our Menu</h2>
 
-
             {
-                // rendering optimization - remember that JSX only accepts expressions so a  conditional statement is not allowed
+                // rendering optimization - remember that JSX only accepts expressions so an conditional statement is not allowed
 
                 // check if pizza array is empty
-                // we want to render two elements separately. React Fragment. Otherwise, if div was to be used then it would render only one component and that would mess up the css- styling
+                // we want to render two elements seperately. React Fragment. Otherwise if div was to be used then it would render only one component and that would mess up the css- styling
                 numPizzas > 0 ? (
-                    <React.Fragment key="something01">
+                    // if yes then return this component
+                    <React.Fragment key="test">
                         <p>
                             Authentic Italian cuising. 6 createive dishes to choose from. All
                             from our stone over, all organice, all delicious.
                         </p>
+                        {/* display pizza in a list */}
+
+                        {/*// traverse a list using map*/}
 
                         <ul className="pizzas">
                             {
@@ -135,63 +122,6 @@ const Menu = () => {
                             }
 
                             {/*   <Pizza
-                                name={"Pizza Spinaci"}
-                                ingredients={"Tomato, mozzarella, spinach, and ricotta cheese"}
-                                photoName={"pizzas/spinaci.jpg"}
-                                price={10}
-                            />
-                            <Pizza
-                                name={"Pizza Funghi"}
-                                ingredients={"Tomato, mozarella, mushrooms, and onion"}
-                                photoName={"pizzas/funghi.jpg"}
-                                price={12}
-                            />*/}
-                        </ul>
-                    </React.Fragment>
-                ) : (
-                    // if no then return this component
-                    <p>We are still working on our menu. Please come back later!</p>
-                )
-
-            }
-        </main>
-    );
-};
-
-/*
-// TODO: 05.01 Menu function- component
-const Menu = () => {
-
-    // get array
-    const pizzas = pizzaData;
-
-    // get array's length
-    const numPizzas = pizzas.length;
-
-    // We know that from a component we can only return one JSX
-
-    return (
-        <main className={"menu"}>
-            <h2>Our menu</h2>
-
-
-            {{/!* Conditional rendering: short-circuiting*!/}}
-
-            {/!* This will render every time even if pizzaData is empty because it returns a truthy value*!/}
-            {pizzas && ( <ul className={"pizzas"}>{pizza=>(<Pizza pizzaObject={pizza} key={pizza.name}/>)}</ul>)}
-
-            {/!*!// traverse a list using map*!/}
-            {/!*    <ul className={"pizzas"}>
-                {
-                    // pizzaData.map(pizza => (<Pizza name={pizza.name} ingredients={pizza.ingredients}/>))
-                    // we usually pass the object itself
-                    pizzaData.map(pizza => (<Pizza pizzaObject={pizza} key={pizza.name}/>))
-                }
-            </ul>
-            *!/}
-
-
-            {/!*   <Pizza
             name={"Pizza Spinaci"}
             ingredients={"Tomato, mozzarella, spinach, and ricotta cheese"}
             photoName={"pizzas/spinaci.jpg"}
@@ -202,36 +132,33 @@ const Menu = () => {
             ingredients={"Tomato, mozarella, mushrooms, and onion"}
             photoName={"pizzas/funghi.jpg"}
             price={12}
-        />*!/}
-        </main>);
+        />*/}
+                        </ul>
+                    </React.Fragment>
+                ) : (
+                    // if no then return this component
+
+                    <p>We are still working on our menu. Please come back later!</p>
+                )
+            }
+        </main>
+    );
 };
-*/
 
-function Pizza({pizzaObject}) {
-
-
-    // if(props.pizzaObject.soldOut) return null;
-
-
+// TODO: 07 Pizza
+const Pizza = ({pizzaObject}) => {
     return (
-        /*
-                <li className={"pizza"}>
-        */
-
-        /*
-                Set conditional CSS classes
-        */
+        // check if pizza is available if not then the className should be pizza sold-out, if not then just pizza
         <li className={`pizza ${pizzaObject.soldOut ? "sold-out" : ""}`}>
             <img src={pizzaObject.photoName} alt={pizzaObject.name}/>
-            <div><h3>{pizzaObject.name}</h3>
+            <div>
+                <h3>{pizzaObject.name}</h3>
                 <p>{pizzaObject.ingredients}</p>
-                {/*
-                {pizzaObject.soldOut ? (<span>SOLD OUT</span>) : <span>{pizzaObject.price}</span>}
-                */}
-                <span>{pizzaObject.soldOut ? "SOLD OUT" : pizzaObject.price}</span></div>
+                <span>{pizzaObject.soldOut ? "SOLD OUT" : pizzaObject.price}</span>
+            </div>
         </li>
     );
-}
+};
 
 // const Pizza = ({ pizzaObject }) => {
 //   const { name, ingredients, soldOut, price, photoName } = pizzaObject;
@@ -251,63 +178,41 @@ function Pizza({pizzaObject}) {
 
 // TODO: 04.01 Footer function
 const Footer = () => {
-
     // get local real time
     const localTime = new Date().getHours();
     // console.log(localTime);
 
     // set open and closing hours
-    const openingHour = 12;
-    const closingHour = 22;
+    const openHour = 12;
+    const closeHour = 22;
 
     // JS ternary conditional
-    const isOpen = localTime >= openingHour && localTime <= closingHour; // true or false
-    console.log(isOpen);
+    const isOpen = localTime >= openHour && localTime <= closeHour; // true or false
 
-
-    // In this way the footer will not render. It is mostly used if we want to render a whole different component
-    if (!isOpen)
-        return (
-            <p>
-                We're happy to welcome you between {openingHour}:00 and {closingHour}:00.
-            </p>
-        );
-
-    // ternary operator ver
     return (
-        <footer className={"footer"}>
+        <footer className="footer">
             {
-                isOpen ? (<Open openingHour={openingHour} closingHour={closingHour}/>) : (
+                // JS code - misssing alternative
+                //isOpen && <Open closingTime={closeHour} openingTime={openHour} />
+                isOpen ? (
+                    <Open closingTime={closeHour} openingTime={openHour}/>
+                ) : (
                     <p>
-                        We're happy to welcome you between {openingHour}:00 and {closingHour}:00.
+                        We're happy to welcome you between {openHour}:00 and {closeHour}:00.
                     </p>
                 )
             }
         </footer>
     );
-
-
-    /*  // short-circuiting ver
-      return (
-          <footer className={"footer"}>
-              {
-                  /!*short-circuiting, js expression*!/
-                  isOpen &&
-                  <div className={"open"}>
-                      <p>We're open until {closingHour}:00. Come visit us or order online</p>
-                      <button className={"btn"}>Order</button>
-                  </div>}
-          </footer>
-      );*/
 };
 
 // TODO: 06 Footer: We create a new function component because we want big different outputs. Also it doesnt render - optimizes this way
 // Technique: destructuring
-const Open = ({openingHour, closingHour}) => {
+const Open = ({closingTime, openingTime}) => {
     return (
         <div className="open">
             <p>
-                We are open from {openingHour}:00 until {closingHour}:00. Come visit us
+                We are open from {openingTime}:00 until {closingTime}:00. Come visit us
                 or order online.
             </p>
             <button className="btn">Order</button>
