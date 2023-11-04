@@ -33,6 +33,7 @@ const Form = () => {
     // TODO 3.02 Logic
     function handleSubmit(event) {
         event.preventDefault();
+        console.log(event);
 
     }
 
