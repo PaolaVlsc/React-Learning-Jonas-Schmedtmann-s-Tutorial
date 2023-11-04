@@ -200,6 +200,11 @@ const Menu = () => {
 */
 
 function Pizza(props) {
+
+
+    // if(props.pizzaObject.soldOut) return null;
+
+
     return (
         <li className={"pizza"}>
             <img src={props.pizzaObject.photoName} alt={props.pizzaObject.name}/>
@@ -240,10 +245,7 @@ const Footer = () => {
     return (
         <footer className={"footer"}>
             {
-                isOpen ? (<div className={"open"}>
-                    <p>We're open until {closingHour}:00. Come visit us or order online</p>
-                    <button className={"btn"}>Order</button>
-                </div>) : (
+                isOpen ? (<Open openingHour={openingHour} closingHour={closingHour}/>) : (
                     <p>
                         We're happy to welcome you between {openingHour}:00 and {closingHour}:00.
                     </p>
@@ -267,6 +269,19 @@ const Footer = () => {
       );*/
 };
 
+// TODO: 06 Footer: We create a new function component because we want big different outputs. Also it doesnt render - optimizes this way
+// Technique: destructuring
+const Open = (props) => {
+    return (
+        <div className="open">
+            <p>
+                We are open from {props.openingHour}:00 until {props.closingHour}:00. Come visit us
+                or order online.
+            </p>
+            <button className="btn">Order</button>
+        </div>
+    );
+};
 
 // TODO:02 Render Page / React
 const root = ReactDOM.createRoot(document.getElementById("root"));
