@@ -41,9 +41,9 @@ const Form = () => {
 // TODO 4: Packing List Component
 const PackingList = () => {
     return (
-        <div className={"list"}>
+        <ul className={"list"}>
 
-        </div>
+        </ul>
     );
 }
 
