@@ -228,6 +228,14 @@ const Footer = () => {
     console.log(isOpen);
 
 
+    // In this way the footer will not render. It is mostly used if we want to render a whole different component
+    if (!isOpen)
+        return (
+            <p>
+                We're happy to welcome you between {openingHour}:00 and {closingHour}:00.
+            </p>
+        );
+
     // ternary operator ver
     return (
         <footer className={"footer"}>
