@@ -32,6 +32,7 @@ const Logo = () => {
 const Form = () => {
 
     const [description, setDescription] = useState("TEST");
+    const [quantity, setQuantity] = useState(1);
 
     // TODO 3.02 Logic
     function handleSubmit(event) {
@@ -44,7 +45,7 @@ const Form = () => {
         // <div className="add-form" onSubmit={  handleSubmit }>
         <form className={"add-form"} onSubmit={(event) => handleSubmit(event)}>
             <h3>What do you need for your trip?</h3>
-            <select>
+            <select value={quantity} onChange={(e) => setQuantity(Number(e.target.value))}>
                 {/*TODO 3.01 Layout */}
                 {/*<option value={1}>1</option>*/}
                 {/*<option value={2}>2</option>*/}
@@ -64,7 +65,10 @@ const Form = () => {
                 type={"text"}
                 placeholder={"Item..."}
                 value={description}
-                onChange={(e)=>{setDescription( e.target.value) }}/>
+                onChange={(e) => {
+                    console.log(e.target.value);
+                    setDescription(e.target.value);
+                }}/>
             <button>Add</button>
         </form>
     );
@@ -85,7 +89,7 @@ function Item({item}) {
 // TODO 4: Packing List Component
 const PackingList = () => {
     return (
-        <div className={"list"}  >
+        <div className={"list"}>
             <ul>
                 {/*TODO 04.01: Render List*/}
                 {initialItems.map(item => <Item item={item} key={item.id}/>)}
