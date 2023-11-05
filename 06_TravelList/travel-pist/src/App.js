@@ -15,7 +15,6 @@ const initialItems = [{id: 1, description: "Passports", quantity: 2, packed: fal
 const App = () => {
 
     const [items, setItems] = useState([]); // empty array because the first time we open it we want it empty
-
     function handleAddItems(item) {
         // the new state depends on the CURRENT state, therefore we need to use a callback function
         // we shouldn't t use items.push(item) because it will mutate the array and REACT is all about immutability
@@ -37,8 +36,8 @@ const App = () => {
     return (<div className={"app"}>
         <Logo/>
         <Form onAddItems={handleAddItems}/>
-        <PackingList items={items} onDeleteItem={handleDeleteItem} onToggleItem={handleToggleItem} />
-        <Stats/>
+        <PackingList items={items} onDeleteItem={handleDeleteItem} onToggleItem={handleToggleItem}/>
+        <Stats items={items}/>
     </div>);
 }
 
@@ -130,16 +129,19 @@ const PackingList = ({items, onDeleteItem, onToggleItem}) => {
         <div className={"list"}>
             <ul>
                 {/*TODO 04.01: Render List*/}
-                {items.map(item => <Item item={item} key={item.id} onDeleteItem={onDeleteItem} onToggleItem={onToggleItem} />)}
+                {items.map(item => <Item item={item} key={item.id} onDeleteItem={onDeleteItem}
+                                         onToggleItem={onToggleItem}/>)}
             </ul>
         </div>
     );
 }
 
 // TODO 5: Stats
-const Stats = () => {
+const Stats = ({items}) => {
+    const numItems = items.length; // it will get updated every time it gets rerendered
+
     return (<footer className={"stats"}>
-        <em>You have X items on your list, and you've already packed X (X%)</em>
+        <em>You have {numItems} items on your list, and you've already packed X (X%)</em>
     </footer>);
 }
 export default App;
