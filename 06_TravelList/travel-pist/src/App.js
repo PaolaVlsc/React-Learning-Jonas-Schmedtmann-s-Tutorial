@@ -1,13 +1,14 @@
 // data
-import * as PropTypes from "prop-types";
 import {useState} from "react";
 
+/*
 const initialItems = [{id: 1, description: "Passports", quantity: 2, packed: false}, {
     id: 2,
     description: "Socks",
     quantity: 12,
     packed: false
 }, {id: 3, description: "Charger", quantity: 1, packed: true},];
+*/
 
 
 // TODO 1: App Component
@@ -22,10 +23,17 @@ const App = () => {
         setItems((items) => [...items, item]);
     }
 
+    function handleDeleteItem(id) {
+        console.log(id);
+        setItems(items => items.filter(item => item.id !== id));
+    }
+
+    // TODO on delete event - handler
+
     return (<div className={"app"}>
         <Logo/>
         <Form onAddItems={handleAddItems}/>
-        <PackingList items={items}/>
+        <PackingList items={items} onDeleteItem={handleDeleteItem}/>
         <Stats/>
     </div>);
 }
@@ -98,24 +106,24 @@ const Form = ({onAddItems}) => {
 }
 
 // TODO 4.02: Item Component in the list
-function Item({item}) {
+function Item({item, onDeleteItem}) {
     return (
         <li>
             {/*Conditionally styling*/}
             <span style={item.packed ? {textDecoration: "line-through"} : {}}>
                 {item.quantity} {item.description}
             </span>
-            <button>❌</button>
+            <button onClick={() => onDeleteItem(item.id)}>❌</button>
         </li>);
 }
 
 // TODO 4: Packing List Component
-const PackingList = ({items}) => {
+const PackingList = ({items, onDeleteItem}) => {
     return (
         <div className={"list"}>
             <ul>
                 {/*TODO 04.01: Render List*/}
-                {items.map(item => <Item item={item} key={item.id}/>)}
+                {items.map(item => <Item item={item} key={item.id} onDeleteItem={onDeleteItem}/>)}
             </ul>
         </div>
     );
