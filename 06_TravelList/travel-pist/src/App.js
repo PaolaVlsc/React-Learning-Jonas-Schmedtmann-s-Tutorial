@@ -31,8 +31,13 @@ const App = () => {
         setItems(items => items.map(item => item.id === id ? {...item, packed: !item.packed} : item));
     }
 
-    function handleClearList(){
-        setItems([]);
+    function handleClearList() {
+        console.log("heiuheu", items.length)
+        if (items.length !== 0) {
+            const confirmed = window.confirm("Are you sure you want to delete all items?");
+            if (confirmed)
+                setItems([]);
+        }
     }
 
     // TODO on delete event - handler
@@ -40,7 +45,8 @@ const App = () => {
     return (<div className={"app"}>
         <Logo/>
         <Form onAddItems={handleAddItems}/>
-        <PackingList items={items} onDeleteItem={handleDeleteItem} onToggleItem={handleToggleItem} onClearList={handleClearList}/>
+        <PackingList items={items} onDeleteItem={handleDeleteItem} onToggleItem={handleToggleItem}
+                     onClearList={handleClearList}/>
         <Stats items={items}/>
     </div>);
 }
@@ -152,7 +158,7 @@ const PackingList = ({items, onDeleteItem, onToggleItem, onClearList}) => {
             <ul>
                 {/*TODO 04.01: Render List*/}
                 {sortedItems.map(item => <Item item={item} key={item.id} onDeleteItem={onDeleteItem}
-                                         onToggleItem={onToggleItem}/>)}
+                                               onToggleItem={onToggleItem}/>)}
             </ul>
 
             <div className={"actions"}>
