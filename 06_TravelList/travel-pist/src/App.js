@@ -28,12 +28,16 @@ const App = () => {
         setItems(items => items.filter(item => item.id !== id));
     }
 
+    function handleToggleItem(id) {
+        setItems(items => items.map(item => item.id === id ? {...item, packed: !item.packed} : item));
+    }
+
     // TODO on delete event - handler
 
     return (<div className={"app"}>
         <Logo/>
         <Form onAddItems={handleAddItems}/>
-        <PackingList items={items} onDeleteItem={handleDeleteItem}/>
+        <PackingList items={items} onDeleteItem={handleDeleteItem} onToggleItem={handleToggleItem} />
         <Stats/>
     </div>);
 }
@@ -48,7 +52,7 @@ const Logo = () => {
 // TODO 3: Form Component
 const Form = ({onAddItems}) => {
 
-    const [description, setDescription] = useState("TEST");
+    const [description, setDescription] = useState("");
     const [quantity, setQuantity] = useState(1);
 
 
@@ -106,12 +110,11 @@ const Form = ({onAddItems}) => {
 }
 
 // TODO 4.02: Item Component in the list
-function Item({item, onDeleteItem}) {
+function Item({item, onDeleteItem, onToggleItem}) {
     return (
         <li>
-            <input type={"checkbox"} value={item.packed} onChange={() => {
-
-            }}/>
+            <input type={"checkbox"} value={item.packed} onChange={() => onToggleItem(item.id)}
+            />
 
             {/*Conditionally styling*/}
             <span style={item.packed ? {textDecoration: "line-through"} : {}}>
@@ -122,12 +125,12 @@ function Item({item, onDeleteItem}) {
 }
 
 // TODO 4: Packing List Component
-const PackingList = ({items, onDeleteItem}) => {
+const PackingList = ({items, onDeleteItem, onToggleItem}) => {
     return (
         <div className={"list"}>
             <ul>
                 {/*TODO 04.01: Render List*/}
-                {items.map(item => <Item item={item} key={item.id} onDeleteItem={onDeleteItem}/>)}
+                {items.map(item => <Item item={item} key={item.id} onDeleteItem={onDeleteItem} onToggleItem={onToggleItem} />)}
             </ul>
         </div>
     );
