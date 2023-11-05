@@ -13,10 +13,19 @@ const initialItems = [{id: 1, description: "Passports", quantity: 2, packed: fal
 // TODO 1: App Component
 const App = () => {
 
+    const [items, setItems] = useState([]); // empty array because the first time we open it we want it empty
+
+    function handleAddItems(item) {
+        // the new state depends on the CURRENT state, therefore we need to use a callback function
+        // we shouldn't t use items.push(item) because it will mutate the array and REACT is all about immutability
+        // The goal is to create a new array
+        setItems((items) => [...items, item]);
+    }
+
     return (<div className={"app"}>
         <Logo/>
-        <Form/>
-        <PackingList/>
+        <Form onAddItems={handleAddItems}/>
+        <PackingList items={items}/>
         <Stats/>
     </div>);
 }
@@ -29,18 +38,11 @@ const Logo = () => {
 
 
 // TODO 3: Form Component
-const Form = () => {
+const Form = ({onAddItems}) => {
 
     const [description, setDescription] = useState("TEST");
     const [quantity, setQuantity] = useState(1);
-    const [items, setItems] = useState([]); // empty array because the first time we open it we want it empty
 
-    function handleAddItems(item) {
-        // the new state depends on the CURRENT state, therefore we need to use a callback function
-        // we shouldn't t use items.push(item) because it will mutate the array and REACT is all about immutability
-        // The goal is to create a new array
-        setItems((items) => [...items, item]);
-    }
 
     // TODO 3.02 Logic
     function handleSubmit(event) {
@@ -54,7 +56,7 @@ const Form = () => {
         console.log(newItem);
 
         // on submit we want to mutate the array list of items
-        handleAddItems(newItem);
+        onAddItems(newItem);
 
         // reset the form
         setDescription("");
@@ -108,12 +110,12 @@ function Item({item}) {
 }
 
 // TODO 4: Packing List Component
-const PackingList = () => {
+const PackingList = ({items}) => {
     return (
         <div className={"list"}>
             <ul>
                 {/*TODO 04.01: Render List*/}
-                {initialItems.map(item => <Item item={item} key={item.id}/>)}
+                {items.map(item => <Item item={item} key={item.id}/>)}
             </ul>
         </div>
     );
