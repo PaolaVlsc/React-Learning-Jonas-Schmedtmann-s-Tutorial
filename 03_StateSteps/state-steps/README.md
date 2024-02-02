@@ -64,7 +64,19 @@ The current step is highlighted in a different color, and the corresponding mess
 - **Close Button (X):**
   - There is a close button (X) positioned at the top right corner of the application.
   - Clicking the close button will toggle the visibility of the entire steps section.
-  - When closed, the steps section is hidden, and the close button can be clicked again to show the steps.
+  - When closed, the steps section is hidden - but the state still remains, and the close button can be clicked again to show the steps.
+
+<div align="center">
+  <img src="https://github.com/PaolaVlsc/React-Learning-Jonas-Schmedtmann-s-Tutorial/assets/87998374/02c2bd26-6cfe-47a0-84fd-35b48a59d5a5" width="50%">
+</div>
+
+<div align="center">
+  <img src="https://github.com/PaolaVlsc/React-Learning-Jonas-Schmedtmann-s-Tutorial/assets/87998374/69be9e62-cd5a-4a6e-a507-9ef170869707" width="50%">
+</div>
+
+<div align="center">
+  <img src="https://github.com/PaolaVlsc/React-Learning-Jonas-Schmedtmann-s-Tutorial/assets/87998374/b251a431-f4e7-47c3-834f-4e8876792cc6" width="50%">
+</div>
 
 ## Styling
 
