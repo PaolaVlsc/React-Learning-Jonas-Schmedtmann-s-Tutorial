@@ -1,4 +1,4 @@
-import Accordion from "./component/Accordion";
+import AccordionVer02 from "./component/Accordion_ver02";
 
 const faqs = [
   {
@@ -21,7 +21,7 @@ const faqs = [
 
 function App() {
   return <div>
-    <Accordion data={faqs}/>
+    <AccordionVer02 data={faqs}/>
   </div>;
 }
 
