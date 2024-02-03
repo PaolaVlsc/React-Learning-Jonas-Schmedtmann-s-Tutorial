@@ -7,14 +7,14 @@ const Accordion = ({data}) => {
         <div className={"accordion"}>
 
             {data.map((item, index) =>
-                (<AccordionItem title={item.title} text={item.text} num={index} key={item.title}/>))
+                (<AccordionItem title={item.title} text={item.text} num={index}/>))
             }
         </div>
     );
 }
 
 // Accordion's items
-function AccordionItem({num, title, key, text}) {
+function AccordionItem({num, title, text}) {
 
     const [isOpen, setIsOpen] = useState(false);
 
