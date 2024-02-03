@@ -5,6 +5,9 @@ import {useState} from "react";
 
 const Form = ({onAddItems}) => {
 
+    // what is in the description is being saved in DOM but we want it to be saved in React
+    // that's why we have to use states
+
     const [description, setDescription] = useState("");
     const [quantity, setQuantity] = useState(1);
 
@@ -31,6 +34,7 @@ const Form = ({onAddItems}) => {
 
     return (
         // <div className="add-form" onSubmit={  handleSubmit }>
+        // remember that we dont write handleSubmit() but only handleSubmit because React will call it , we dont do it by ourselves
         <form className={"add-form"} onSubmit={(event) => handleSubmit(event)}>
             <h3>What do you need for your trip?</h3>
             <select value={quantity} onChange={(e) => setQuantity(Number(e.target.value))}>
