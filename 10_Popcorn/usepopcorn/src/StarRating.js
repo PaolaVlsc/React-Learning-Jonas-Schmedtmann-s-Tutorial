@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import { PropTypes } from "react";
 // We place it outside of the function so that it will not have to be regenreated by
 // JavaScript every time the function is called / re-rendered
 // This is a performance optimization technique
@@ -12,6 +13,16 @@ const containerStyle = {
 const starContainerStyle = {
   display: "flex",
   gap: "4px",
+};
+
+StarRating.propTypes = {
+  maxRating: PropTypes.number,
+  color: PropTypes.string,
+  size: PropTypes.number,
+  className: PropTypes.string,
+  messages: PropTypes.array,
+  defaultRating: PropTypes.number,
+  onSetRating: PropTypes.func,
 };
 
 export default function StarRating({
