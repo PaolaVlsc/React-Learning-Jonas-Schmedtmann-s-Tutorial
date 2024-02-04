@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 // We place it outside of the function so that it will not have to be regenreated by
 // JavaScript every time the function is called / re-rendered
 // This is a performance optimization technique
@@ -20,12 +21,14 @@ export default function StarRating({
   className = "",
   messages = [],
   defaultRating = 0,
+  onSetRating,
 }) {
   const [rating, setRating] = useState(defaultRating);
   const [tempRating, setTempRating] = useState(0);
 
   function handleRating(rating) {
     setRating(rating);
+    onSetRating(rating);
   }
 
   // because it depends on the prob we insert it in the function
