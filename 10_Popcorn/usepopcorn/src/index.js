@@ -12,5 +12,6 @@ root.render(
     <StarRating maxRating={5} />
     <StarRating maxRating={10} />
     <StarRating />
+    <StarRating size={24} color="red" className="test" />
   </React.StrictMode>
 );
