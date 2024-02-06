@@ -26,6 +26,11 @@ export default function App() {
   );
 }
 
+// when react sees this , it will internlly call
+// the DifferentContent function and it will return the jsx ( react element)
+console.log(<DifferentContent test={23} />); // this is a component instance
+console.log(DifferentContent()); // this is a component
+
 function Tabbed({ content }) {
   const [activeTab, setActiveTab] = useState(0);
 
@@ -37,12 +42,15 @@ function Tabbed({ content }) {
         <Tab num={2} activeTab={activeTab} onClick={setActiveTab} />
         <Tab num={3} activeTab={activeTab} onClick={setActiveTab} />
       </div>
-
       {activeTab <= 2 ? (
         <TabContent item={content.at(activeTab)} />
       ) : (
         <DifferentContent />
       )}
+      {/* This is not a component instance. 
+      We should not do this as it violates the rules of hooks */}
+      {TabContent({ item: content.at(0) })}
+      because it cannot even handle its own state
     </div>
   );
 }
