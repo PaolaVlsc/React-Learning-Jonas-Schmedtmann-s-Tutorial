@@ -48,9 +48,9 @@ function Tabbed({ content }) {
         <DifferentContent />
       )}
       {/* This is not a component instance. 
-      We should not do this as it violates the rules of hooks */}
-      {TabContent({ item: content.at(0) })}
       because it cannot even handle its own state
+      We should not do this as it violates the rules of hooks */}
+      {/* {TabContent({ item: content.at(0) })}  */}
     </div>
   );
 }
