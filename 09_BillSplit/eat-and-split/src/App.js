@@ -125,7 +125,7 @@ const FormAddNewFriend = () => {
   };
 
   return (
-    <form className="form-add-friend">
+    <form className="form-add-friend" onSubmit={handleAddFriend}>
       <label>👫 Friend name</label>
       <input
         type="text"
