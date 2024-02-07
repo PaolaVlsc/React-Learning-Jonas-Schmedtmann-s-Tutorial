@@ -26,6 +26,8 @@ export default function App() {
     <div className="app">
       <div className="sidebar">
         <FriendsList />
+        <FormAddFriend />
+        <Button>Add friend</Button>
       </div>
     </div>
   );
@@ -81,6 +83,8 @@ const FormAddFriend = () => {
 
       <label>🌄 Image URL</label>
       <input type="text" />
+
+      <Button>Add friend</Button>
     </form>
   );
 };
