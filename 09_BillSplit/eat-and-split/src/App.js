@@ -21,14 +21,6 @@ const initialFriends = [
   },
 ];
 
-function Button({ onClick, children }) {
-  return (
-    <button className="button" onClick={onClick}>
-      {children}
-    </button>
-  );
-}
-
 export default function App() {
   return (
     <div className="app">
@@ -72,7 +64,23 @@ const Friend = ({ friend }) => {
       )}
       {friend.balance === 0 && <p>You and {friend.name} are even</p>}
 
-      <button className="button">Select</button>
+      {/* <button className="button">Select</button> */}
+      <Button>Select</Button>
     </li>
+  );
+};
+
+const Button = ({ children }) => {
+  return <button className="button">{children}</button>;
+};
+const FormAddFriend = () => {
+  return (
+    <form className="form-add-friend">
+      <label>👫 Friend name</label>
+      <input type="text" />
+
+      <label>🌄 Image URL</label>
+      <input type="text" />
+    </form>
   );
 };
