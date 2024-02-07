@@ -21,14 +21,31 @@ const initialFriends = [
   },
 ];
 
+// TODO: 04 Button component - optimize code
+const Button = ({ children, onClick }) => {
+  return (
+    <button className="button" onClick={onClick}>
+      {children}
+    </button>
+  );
+};
+
 // TODO: 01 App component - main
 export default function App() {
+  // State for adding new friend
+  const [showAddNewFriend, setShowAddNewFriend] = useState(false);
+  function handleShowAddNewFriend() {
+    setShowAddNewFriend((show) => !show);
+  }
+
   return (
     <div className="app">
       <div className="sidebar">
         <FriendsList />
-        <FormAddFriend />
-        <Button>Add friend</Button>
+        {showAddNewFriend && <FormAddFriend />}
+        <Button onClick={handleShowAddNewFriend}>
+          {!showAddNewFriend ? "Add New friend" : "Close"}
+        </Button>
       </div>
       <FormSplitBill />
     </div>
@@ -74,11 +91,6 @@ const Friend = ({ friend }) => {
       <Button>Select</Button>
     </li>
   );
-};
-
-// TODO: 04 Button component - optimize code
-const Button = ({ children }) => {
-  return <button className="button">{children}</button>;
 };
 
 // TODO: 05 FormAddFriend component - to add a new friend
