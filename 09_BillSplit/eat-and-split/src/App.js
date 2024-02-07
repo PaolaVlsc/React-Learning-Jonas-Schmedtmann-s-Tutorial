@@ -46,8 +46,16 @@ const FriendsList = () => {
   return (
     <ul>
       {friends.map((friend) => (
-        <li key={friend.id}>{friend.name}</li>
+        <Friend key={friend.id} friend={friend} />
       ))}
     </ul>
   );
+};
+
+const Friend = ({ friend }) => {
+  return;
+  <li key={friend.id}>
+    <img src={friend.image} alt={friend.name} />
+    <h3>{friend.name}</h3>
+  </li>;
 };
