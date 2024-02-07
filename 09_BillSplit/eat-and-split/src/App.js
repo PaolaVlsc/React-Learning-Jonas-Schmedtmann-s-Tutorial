@@ -45,10 +45,16 @@ export default function App() {
     setShowAddNewFriend(false); // to close the form after adding a new friend
   }
 
+  // State for selected friend
+  const [selectedFriend, setSelectedFriend] = useState(null); // no object at all at init
+  function handleSelection(friend) {
+    setSelectedFriend(friend);
+  }
+
   return (
     <div className="app">
       <div className="sidebar">
-        <FriendsList friends={friends} />
+        <FriendsList friends={friends} onSelection={handleSelection} />
         {showAddNewFriend && (
           <FormAddNewFriend onAddNewFriend={handleUpdateListOnAdd} />
         )}
@@ -56,27 +62,27 @@ export default function App() {
           {!showAddNewFriend ? "Add New friend" : "Close"}
         </Button>
       </div>
-      <FormSplitBill />
+      {selectedFriend && <FormSplitBill />}
     </div>
   );
 }
 
 // TODO: 02 FriendsList component (sidebar)
-const FriendsList = ({ friends }) => {
+const FriendsList = ({ friends, onSelection }) => {
   // get friends from local storage - not used anymore as we are uising a lift up state
   // const friends = initialFriends;
 
   return (
     <ul>
       {friends.map((friend) => (
-        <Friend key={friend.id} friend={friend} />
+        <Friend key={friend.id} friend={friend} onSelection={onSelection} />
       ))}
     </ul>
   );
 };
 
 // TODO: 03 Friend component for each friend in the list
-const Friend = ({ friend }) => {
+const Friend = ({ friend, onSelection }) => {
   return (
     <li key={friend.id}>
       <img src={friend.image} alt={friend.name} />
@@ -97,7 +103,7 @@ const Friend = ({ friend }) => {
       {friend.balance === 0 && <p>You and {friend.name} are even</p>}
 
       {/* <button className="button">Select</button> */}
-      <Button>Select</Button>
+      <Button onClick={() => onSelection(friend)}>Select</Button>
     </li>
   );
 };
