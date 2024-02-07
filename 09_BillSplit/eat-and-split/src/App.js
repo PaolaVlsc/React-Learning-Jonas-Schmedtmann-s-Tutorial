@@ -21,6 +21,7 @@ const initialFriends = [
   },
 ];
 
+// TODO: 01 App component - main
 export default function App() {
   return (
     <div className="app">
@@ -29,10 +30,12 @@ export default function App() {
         <FormAddFriend />
         <Button>Add friend</Button>
       </div>
+      <FormSplitBill />
     </div>
   );
 }
 
+// TODO: 02 FriendsList component (sidebar)
 const FriendsList = () => {
   // get friends from local storage
   const friends = initialFriends;
@@ -46,6 +49,7 @@ const FriendsList = () => {
   );
 };
 
+// TODO: 03 Friend component for each friend in the list
 const Friend = ({ friend }) => {
   return (
     <li key={friend.id}>
@@ -72,9 +76,12 @@ const Friend = ({ friend }) => {
   );
 };
 
+// TODO: 04 Button component - optimize code
 const Button = ({ children }) => {
   return <button className="button">{children}</button>;
 };
+
+// TODO: 05 FormAddFriend component - to add a new friend
 const FormAddFriend = () => {
   return (
     <form className="form-add-friend">
@@ -85,6 +92,30 @@ const FormAddFriend = () => {
       <input type="text" />
 
       <Button>Add friend</Button>
+    </form>
+  );
+};
+
+// TODO: 06 Second form
+const FormSplitBill = () => {
+  return (
+    <form className="form-split-bill">
+      <h2>Split a bill with X</h2>
+      <label>💰 Bill value</label>
+      <input type="text" />
+
+      <label>🕴️ Your expense </label>
+      <input type="text" />
+
+      <label> 🧑‍🤝‍🧑 X's expenses</label>
+      <input type="text" disabled />
+
+      <label> 🤔 Who is paying the bill </label>
+      <select>
+        <option value="user">You</option>
+        <option value="friend">Friend</option>
+      </select>
+      <Button>Split bill</Button>
     </form>
   );
 };
