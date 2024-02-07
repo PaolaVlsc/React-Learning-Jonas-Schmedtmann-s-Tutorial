@@ -40,5 +40,14 @@ export default function App() {
 }
 
 const FriendsList = () => {
-  return <ul>List</ul>;
+  // get friends from local storage
+  const friends = initialFriends;
+
+  return (
+    <ul>
+      {friends.map((friend) => (
+        <li key={friend.id}>{friend.name}</li>
+      ))}
+    </ul>
+  );
 };
