@@ -54,8 +54,8 @@ export default function App() {
 
 // TODO: 02 FriendsList component (sidebar)
 const FriendsList = () => {
-  // get friends from local storage
-  const friends = initialFriends;
+  // get friends from local storage - not used anymore as we are uising a lift up state
+  // const friends = initialFriends;
 
   return (
     <ul>
@@ -100,7 +100,7 @@ const FormAddNewFriend = () => {
   const [image, setImage] = useState("https://i.pravatar.cc/48"); // image of the friend
 
   // handle the form submission
-  const handleAddFriend = (e) => {
+  const handleAddNewFriend = (e) => {
     e.preventDefault(); // prevent the page to refresh
 
     // if one of the field is empty
@@ -125,7 +125,7 @@ const FormAddNewFriend = () => {
   };
 
   return (
-    <form className="form-add-friend" onSubmit={handleAddFriend}>
+    <form className="form-add-friend" onSubmit={handleAddNewFriend}>
       <label>👫 Friend name</label>
       <input
         type="text"
