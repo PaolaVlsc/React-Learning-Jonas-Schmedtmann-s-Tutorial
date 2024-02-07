@@ -42,7 +42,7 @@ export default function App() {
     <div className="app">
       <div className="sidebar">
         <FriendsList />
-        {showAddNewFriend && <FormAddFriend />}
+        {showAddNewFriend && <FormAddNewFriend />}
         <Button onClick={handleShowAddNewFriend}>
           {!showAddNewFriend ? "Add New friend" : "Close"}
         </Button>
@@ -94,14 +94,51 @@ const Friend = ({ friend }) => {
 };
 
 // TODO: 05 FormAddFriend component - to add a new friend
-const FormAddFriend = () => {
+const FormAddNewFriend = () => {
+  // states to get the current state of the input fields
+  const [name, setName] = useState(""); // name of the friend
+  const [image, setImage] = useState("https://i.pravatar.cc/48"); // image of the friend
+
+  // handle the form submission
+  const handleAddFriend = (e) => {
+    e.preventDefault(); // prevent the page to refresh
+
+    // if one of the field is empty
+    if (!name || !image) {
+      alert("Please fill in all the fields");
+      return;
+    }
+    // create a new friend object
+    const id = crypto.randomUUID();
+    const newFriend = {
+      id,
+      name,
+      image: `${image}?=${id}`,
+      balance: 0,
+    };
+
+    console.log(newFriend);
+
+    // reset the form fields
+    setName("");
+    setImage("https://i.pravatar.cc/48");
+  };
+
   return (
     <form className="form-add-friend">
       <label>👫 Friend name</label>
-      <input type="text" />
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
 
       <label>🌄 Image URL</label>
-      <input type="text" />
+      <input
+        type="text"
+        value={image}
+        onChange={(e) => setImage(e.target.value)}
+      />
 
       <Button>Add friend</Button>
     </form>
