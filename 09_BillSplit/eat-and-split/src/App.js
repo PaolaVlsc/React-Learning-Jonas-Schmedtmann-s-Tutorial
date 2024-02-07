@@ -38,11 +38,20 @@ export default function App() {
     setShowAddNewFriend((show) => !show);
   }
 
+  // State for friends list
+  const [friends, setFriends] = useState(initialFriends);
+  function handleUpdateListOnAdd(friend) {
+    setFriends((friends) => [...friends, friend]); // spreading technique
+    setShowAddNewFriend(false); // to close the form after adding a new friend
+  }
+
   return (
     <div className="app">
       <div className="sidebar">
-        <FriendsList />
-        {showAddNewFriend && <FormAddNewFriend />}
+        <FriendsList friends={friends} />
+        {showAddNewFriend && (
+          <FormAddNewFriend onAddNewFriend={handleUpdateListOnAdd} />
+        )}
         <Button onClick={handleShowAddNewFriend}>
           {!showAddNewFriend ? "Add New friend" : "Close"}
         </Button>
@@ -53,7 +62,7 @@ export default function App() {
 }
 
 // TODO: 02 FriendsList component (sidebar)
-const FriendsList = () => {
+const FriendsList = ({ friends }) => {
   // get friends from local storage - not used anymore as we are uising a lift up state
   // const friends = initialFriends;
 
@@ -94,7 +103,7 @@ const Friend = ({ friend }) => {
 };
 
 // TODO: 05 FormAddFriend component - to add a new friend
-const FormAddNewFriend = () => {
+const FormAddNewFriend = ({ onAddNewFriend }) => {
   // states to get the current state of the input fields
   const [name, setName] = useState(""); // name of the friend
   const [image, setImage] = useState("https://i.pravatar.cc/48"); // image of the friend
@@ -119,6 +128,7 @@ const FormAddNewFriend = () => {
 
     console.log(newFriend);
 
+    onAddNewFriend(newFriend); // add the new friend to the list
     // reset the form fields
     setName("");
     setImage("https://i.pravatar.cc/48");
