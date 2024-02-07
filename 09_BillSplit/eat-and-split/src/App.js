@@ -48,7 +48,11 @@ export default function App() {
   // State for selected friend
   const [selectedFriend, setSelectedFriend] = useState(null); // no object at all at init
   function handleSelection(friend) {
-    setSelectedFriend(friend);
+    // setSelectedFriend(friend); ( this does not close it)
+    setSelectedFriend((cur) => (cur?.id === friend.id ? null : friend));
+
+    // close the other form if it is open
+    setShowAddNewFriend(false);
   }
 
   return (
@@ -92,6 +96,7 @@ const FriendsList = ({ friends, onSelection, selectedFriend }) => {
 
 // TODO: 03 Friend component for each friend in the list
 const Friend = ({ friend, onSelection, selectedFriend }) => {
+  // FIXME: optional chaining
   // state for the selected friend
   const isSelected = selectedFriend?.id === friend.id;
   return (
