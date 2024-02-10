@@ -73,10 +73,28 @@ function TabContent({ item }) {
   const [showDetails, setShowDetails] = useState(true);
   const [likes, setLikes] = useState(0);
 
+  console.log("rendering TabContent", item.summary, showDetails, likes);
+
   function handleInc() {
     setLikes(likes + 1);
   }
+  function handleTriple() {
+    // setLikes(likes + 1);
+    // console.log(likes);
+    // setLikes(likes + 1);
+    // setLikes(likes + 1);
 
+    // because it is based on the current state , we should always use a callback
+    setLikes((likes) => likes + 1);
+    setLikes((likes) => likes + 1);
+    setLikes((likes) => likes + 1);
+  }
+
+  function handleUndo() {
+    setShowDetails(true);
+    setLikes(0);
+    console.log(likes);
+  }
   return (
     <div className="tab-content">
       <h4>{item.summary}</h4>
@@ -90,12 +108,12 @@ function TabContent({ item }) {
         <div className="hearts-counter">
           <span>{likes} ❤️</span>
           <button onClick={handleInc}>+</button>
-          <button>+++</button>
+          <button onClick={handleTriple}>+++</button>
         </div>
       </div>
 
       <div className="tab-undo">
-        <button>Undo</button>
+        <button onClick={handleUndo}>Undo</button>
         <button>Undo in 2s</button>
       </div>
     </div>
