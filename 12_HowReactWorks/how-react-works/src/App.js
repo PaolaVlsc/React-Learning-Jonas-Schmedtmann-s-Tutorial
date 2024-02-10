@@ -76,7 +76,7 @@ function TabContent({ item }) {
   console.log("rendering TabContent", item.summary, showDetails, likes);
 
   function handleInc() {
-    setLikes(likes + 1);
+    setLikes((likes) => likes + 1);
   }
   function handleTriple() {
     // setLikes(likes + 1);
@@ -85,9 +85,12 @@ function TabContent({ item }) {
     // setLikes(likes + 1);
 
     // because it is based on the current state , we should always use a callback
-    setLikes((likes) => likes + 1);
-    setLikes((likes) => likes + 1);
-    setLikes((likes) => likes + 1);
+    // setLikes((likes) => likes + 1);
+    // setLikes((likes) => likes + 1);
+    // setLikes((likes) => likes + 1);
+    handleInc();
+    handleInc();
+    handleInc();
   }
 
   function handleUndo() {
