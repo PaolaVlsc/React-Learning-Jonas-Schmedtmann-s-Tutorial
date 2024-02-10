@@ -78,7 +78,7 @@ function TabContent({ item }) {
   function handleInc() {
     setLikes((likes) => likes + 1);
   }
-  function handleTriple() {
+  function handleTripleInc() {
     // setLikes(likes + 1);
     // console.log(likes);
     // setLikes(likes + 1);
@@ -98,6 +98,10 @@ function TabContent({ item }) {
     setLikes(0);
     console.log(likes);
   }
+
+  function handleUndoIn2s() {
+    setTimeout(handleUndo, 2000);
+  }
   return (
     <div className="tab-content">
       <h4>{item.summary}</h4>
@@ -111,13 +115,13 @@ function TabContent({ item }) {
         <div className="hearts-counter">
           <span>{likes} ❤️</span>
           <button onClick={handleInc}>+</button>
-          <button onClick={handleTriple}>+++</button>
+          <button onClick={handleTripleInc}>+++</button>
         </div>
       </div>
 
       <div className="tab-undo">
         <button onClick={handleUndo}>Undo</button>
-        <button>Undo in 2s</button>
+        <button onClick={handleUndoIn2s}>Undo in 2s</button>
       </div>
     </div>
   );
